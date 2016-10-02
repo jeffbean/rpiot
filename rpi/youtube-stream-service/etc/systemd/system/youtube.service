@@ -1,0 +1,15 @@
+[Unit]
+Description=RPI Socket activated service to stream to Youtube
+Requires=youtube.socket
+
+[Service]
+Type=simple
+EnvironmentFile=/etc/default/youtube
+ExecStart=/usr/local/bin/ffmpeg -loglevel panic -re -ar 44100 -ac 2 -acodec pcm_s16le -f s16le -ac 2 -i /dev/zero -f h264 -i - -vcodec copy -acodec aac -ab 128k -g 50 -strict experimental -f flv rtmp://${YOUTUBE_URI_ENSAMBLE}/${YOUTUBE_SECRET_URL}
+StandardInput=socket
+StandardOutput=journal
+StandardError=journal
+TimeoutStopSec=5
+
+[Install]
+WantedBy=multi-user.target

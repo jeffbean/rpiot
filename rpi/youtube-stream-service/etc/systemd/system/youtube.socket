@@ -1,0 +1,8 @@
+[Unit]
+Description=The fifo pipe for streaming youtube
+
+[Socket]
+ListenFIFO=/run/youtube
+
+[Install]
+WantedBy=sockets.target

@@ -1,0 +1,5 @@
+# This might change so lets make this a variable as well since its in Beta right now
+YOUTUBE_URI_ENSAMBLE="a.rtmp.youtube.com/live2"
+# This is the last part of the youtube url that is a secret to streaming
+# You get this from your YouTube live stream dashboard
+YOUTUBE_SECRET_URL=xxx-xxx-xxx-xxx

@@ -1,0 +1,13 @@
+[Unit]
+Description=RPI Service to pump video to youtube socket
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/raspivid -o /run/youtube -t 0 -w 1280 -h 720 -fps 30 -b 5000000
+StandardError=journal
+TimeoutStopSec=5
+Restart=always
+RestartSec=120
+
+[Install]
+WantedBy=multi-user.target
